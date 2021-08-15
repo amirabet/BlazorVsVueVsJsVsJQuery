@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "p+TNLJdmAWPacI3Np0TtXXTe/O/FUJh+xWrzH5KzP7BUdOPrdJDAljDmXqNQvhX9SMfjQaDt9QNTVKGvM/uEMg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\artur.mirabet\\source\\repos\\BlazorComponentsComparison\\BlazorComponentsComparison\\BlazorComponentsComparison.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\artur.mirabet\\.nuget\\packages\\microsoft.aspnetcore.authorization\\5.0.9\\microsoft.aspnetcore.authorization.5.0.9.nupkg.sha512",
+    "C:\\Users\\artur.mirabet\\.nuget\\packages\\microsoft.aspnetcore.components\\5.0.9\\microsoft.aspnetcore.components.5.0.9.nupkg.sha512",
+    "C:\\Users\\artur.mirabet\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\5.0.9\\microsoft.aspnetcore.components.analyzers.5.0.9.nupkg.sha512",
+    "C:\\Users\\artur.mirabet\\.nuget\\packages\\microsoft.aspnetcore.metadata\\5.0.9\\microsoft.aspnetcore.metadata.5.0.9.nupkg.sha512",
+    "C:\\Users\\artur.mirabet\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\artur.mirabet\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\artur.mirabet\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
+    "C:\\Users\\artur.mirabet\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

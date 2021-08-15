@@ -1,0 +1,54 @@
+﻿@page
+@using Microsoft.Extensions.Logging;
+@inject ILoggerFactory ins;
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    ILogger<IndexModel> LOG = ins.CreateLogger<IndexModel>();
+    BlazorComponentsComparison.Pages.Shared.VM vmm = new BlazorComponentsComparison.Pages.Shared.VM(LOG);
+}
+<div class="container">
+    <div class="text-center pt-4">
+        <h1>💥FrontEnd Frameworks Fight!</h1>
+        <br/><br/>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-6 col-lg-3 pb-4">
+            <div class="card">
+                @(await Html.RenderComponentAsync<BlazorComponentsComparison.Pages.Shared.Components.DataViewComponent>(RenderMode.ServerPrerendered, 
+                    new { 
+                        Data = "Blazor from Index", 
+                        style = "badge-dark" 
+                    }))
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3 pb-4">
+            <div class="card">
+                @{
+                    vmm.Data = "From Index => ViewModel";
+                    vmm.style = "badge-dark";
+                }
+                @await Html.PartialAsync("_PartialPureJs", vmm)
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3 pb-4">
+            <div class="card">
+                @{
+                    ViewData["Data"] = "From Index => Viewdata";
+                    ViewData["style"] = "badge-dark";
+                }
+                @await Html.PartialAsync("_PartialJQuery", ViewData)
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3 pb-4">
+            <div class="card">
+                @{
+                    ViewData["Data"] = "Vue from Index";
+                    ViewData["style"] = "badge-dark";
+                }
+                @await Html.PartialAsync("_PartialVue", ViewData)
+            </div>
+        </div>
+    </div>
+</div>
+

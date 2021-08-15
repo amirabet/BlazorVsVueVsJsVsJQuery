@@ -1,0 +1,56 @@
+﻿@model IndexModel
+@{
+}
+<div class="card-header">
+    <h4><span class="badge badge-primary">JQuery</span><small> Comp</small></h4>
+</div>
+
+<div class="card-body">
+    @*
+    El boto podrian tenir la funcio inline peròi per aquest exemple treballarem amb event delegation    
+    *@
+    <button @*onclick="GetDataJQuery()"*@ class="btn btn-dark " data-edclick="btnjquery" data-function="myFunction">Click to GetData</button>
+    <br />
+    <div class="@Model.ViewData["style"].ToString() badge" id="js_badge_jquery">@Model.ViewData["Data"].ToString()</div>
+</div>
+
+<script>
+    function GetDataJQuery() {
+        const badge = $('#js_badge_jquery');
+        let newClass = "badge-primary";
+        let newMessage = "Loaded by JQuery";
+        //
+        badge.removeClass('@Model.ViewData["style"].ToString()').addClass(newClass);
+        badge.text(newMessage);
+    }
+    // Click del botó
+    // Evitem posar la crida en linia amb el botó i la fem directament des del JS
+    // Per a optimitzar-ho dins d'un projecter gran ho podem fer així:
+    //
+    // Event delegation del click del botó
+    //
+    // Podriem fer $('[data-edclick="btnjquery"]').on('click', function(){}); ...
+    // ...però aquesta formula no funciona si carreguem el component via Ajax
+    //
+    // Per a que funcioni sempre hem de posar un listener al body...
+    // ...per poder capturar qualsevol event
+    //
+    // Per evitar repetir listeners podem classificar pel tipus d'event (click, focus, blur...)...
+    // ...i recollir la funcio que vindra vinculada al propi element (data-function) 
+    // S'hauria de comprobar si la funció existeix comprobant al window si la funció existeix:
+    /*
+    function checkeventdelegationfunctions(element, event, functionname) {
+        if (typeof window[functionname] === 'function') {
+            window[functionname](element, event);
+        } else {
+            console.error('Event Delegation ERROR -> No existeix aquesta funció -> "' + functionname + '". El selector és: ' + element.prop('outerHTML'));
+        }
+    }
+    */
+    //
+    $(function () {
+        $(document).on('click', '[data-edclick="btnjquery"]', function (event) {
+            GetDataJQuery(); //Per no complicar-nos aqui cridarem directament a la funció que ens interessa
+        });
+    });
+</script>

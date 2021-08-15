@@ -1,0 +1,36 @@
+﻿@model IndexModel
+@{
+}
+<div class="card-header">
+    <h4><span class="badge badge-success">Vue</span><small> Comp</small></h4>
+</div>
+
+@*
+    VUE production version, optimized for size and speed
+    Incorporem aqui el Vue tot i que no és el correcte, hauria d'estar al index
+*@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div class="card-body" id="vue_wrapper">
+    <button v-on:click="GetDataVue" class="btn btn-dark ">Click to GetData</button>
+    <br />
+    <div class="badge" v-bind:class="[dataClass]">{{ dataData }}</div>
+</div>
+
+
+
+<script>
+    var appVue = new Vue({
+        el: '#vue_wrapper',
+        data: {
+            dataData: '@Model.ViewData["Data"].ToString()' + ' [Vue]',
+            dataClass: '@Model.ViewData["style"].ToString()'
+        },
+        methods: {
+            GetDataVue: function () {
+                this.dataData = 'Loaded by Vue',
+                this.dataClass = 'badge-success'
+            }
+        }
+    })
+</script>

@@ -1,0 +1,24 @@
+﻿@model VM   
+@{
+}
+<div class="card-header">
+    <h4><span class="badge badge-warning">JS</span><small> Comp</small></h4>
+</div>
+
+<div class="card-body">
+    <button onclick="GetDataJS()" class="btn btn-dark ">Click to GetData</button>
+    <br />
+    <div class="@Model.style badge" id="js_badge_js">@Model.Data</div>
+</div>
+
+<script>
+    function GetDataJS() {
+        const badge = document.getElementById('js_badge_js');
+        let newClass = "badge-warning";
+        let newMessage = "Loaded by Vanila JS";
+        //
+        badge.classList.remove("@Model.style");
+        badge.classList.add(newClass);
+        badge.innerText = newMessage;
+    }
+</script>

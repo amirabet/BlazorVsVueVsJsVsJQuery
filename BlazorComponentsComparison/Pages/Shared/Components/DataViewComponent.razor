@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Components
+
+<div class="card-header">
+    <h4><span class="badge badge-secondary">Blazor</span><small> Comp</small></h4>
+</div>
+
+<div class="card-body">
+    <button @onclick="GetData" class="btn btn-dark ">Click to GetData</button>
+    <br />
+    <div class="@style badge">@Data</div>
+</div>
+
+@code{
+    [Parameter]
+    public string Data { get; set; } = string.Empty;
+
+    [Parameter]
+    public string style { get; set; }
+
+    private void GetData()
+    {
+        Data = "Loaded by Blazor";
+        style = "badge-secondary";
+    }
+}
